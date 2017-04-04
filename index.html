@@ -1,11 +1,19 @@
-<button id="detect">detect</button>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Beacon</title>
+  </head>
+  <body>
+    <button id="detect">detect</button>
 
-<script>
-var button = document.getElementById('detect');
-button.addEventListener('click', function(event) {
-  // Call navigator.bluetooth.requestDevice
-  alert('detecting');
-
-  alert('referred from ' + navigator.bluetooth.referringDevice);
-});
-</script>
+    <script>
+    var button = document.getElementById('detect');
+    button.addEventListener('click', function(event) {
+      // Call navigator.bluetooth.requestDevice
+      alert('detecting');
+    
+      alert('referred from ' + navigator.bluetooth.referringDevice);
+    });
+    </script>
+  </body>
+</html>
