@@ -6,6 +6,7 @@
   </head>
   <body>
     <button id="detect">detect</button>
+    <button id="scan">scan</button>
 
     <script>
     var button = document.getElementById('detect');
@@ -14,6 +15,25 @@
       alert('detecting');
     
       alert('referred from ' + navigator.bluetooth.referringDevice);
+    });
+
+    var scanButton = document.getElementById('scan');
+
+    scanButton.addEventListener('click', function() {
+      let options = {};
+      options.acceptAllDevices = true;
+
+      console.log('Requesting Bluetooth Device...');
+      console.log('with ' + JSON.stringify(options));
+      navigator.bluetooth.requestDevice(options)
+      .then(device => {
+        console.log('> Name:             ' + device.name);
+        console.log('> Id:               ' + device.id);
+        console.log('> Connected:        ' + device.gatt.connected);
+      })
+      .catch(error => {
+        console.log('Argh! ' + error);
+      });
     });
     </script>
   </body>
