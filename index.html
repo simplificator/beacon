@@ -8,6 +8,8 @@
     <button id="detect">detect</button>
     <button id="scan">scan</button>
 
+    <div id="results"></div>
+
     <script>
     var button = document.getElementById('detect');
     button.addEventListener('click', function(event) {
@@ -19,17 +21,20 @@
 
     var scanButton = document.getElementById('scan');
 
+    var results = document.getElementById('results');
+
     scanButton.addEventListener('click', function() {
       let options = {};
       options.acceptAllDevices = true;
 
-      console.log('Requesting Bluetooth Device...');
-      console.log('with ' + JSON.stringify(options));
+      results.innerHTML = results.innerHTML + 'Requesting Bluetooth Device...';
+      results.innerHTML = results.innerHTML + 'with ' + JSON.stringify(options);
       navigator.bluetooth.requestDevice(options)
       .then(device => {
-        console.log('> Name:             ' + device.name);
-        console.log('> Id:               ' + device.id);
-        console.log('> Connected:        ' + device.gatt.connected);
+        results.innerHTML = results.innerHTML + '> Name:             ' + device.name;
+        results.innerHTML = results.innerHTML + '> Id:               ' + device.id;
+        results.innerHTML = results.innerHTML + '> Connected:        ' + device.gatt.connected;
+        results.innerHTML = results.innerHTML + '<br />';
       })
       .catch(error => {
         console.log('Argh! ' + error);
