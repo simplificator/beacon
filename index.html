@@ -35,6 +35,14 @@
         results.innerHTML = results.innerHTML + '> Id:               ' + device.id;
         results.innerHTML = results.innerHTML + '> Connected:        ' + device.gatt.connected;
         results.innerHTML = results.innerHTML + '<br />';
+        console.log(device);
+        results.innerHTML = results.innerHTML + '> TX power:        ' + device.txPower;
+        results.innerHTML = results.innerHTML + '> TX power:        ' + device.inquiryTxPower;
+        results.innerHTML = results.innerHTML + '> TX power:        ' + device.inquiryRssi;
+        results.innerHTML = results.innerHTML + '> TX power:        ' + device.connectable;
+        results.innerHTML = results.innerHTML + '> TX power:        ' + device.type;
+        results.innerHTML = results.innerHTML + '<br />';
+        results.innerHTML = results.innerHTML + '<br />';
       })
       .catch(error => {
         console.log('Argh! ' + error);
